@@ -2,65 +2,595 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>TOP1 Sudan</title>
 
 <style>
 :root{
---bg:#070b12;--card:#111925;--card2:#182231;--border:#2a3748;
---text:#fff;--muted:#9ba8b8;--gold:#f5b900;--green:#29d391;
---red:#ff6577;--blue:#6fa8ff
+  --bg:#070b12;
+  --card:#111925;
+  --card2:#182231;
+  --border:#2a3748;
+  --text:#ffffff;
+  --muted:#9ba8b8;
+  --gold:#f5b900;
+  --green:#29d391;
+  --red:#ff6577;
+  --blue:#6fa8ff;
 }
-*{box-sizing:border-box}
-html,body{margin:0;padding:0;min-height:100%}
-body{background:#03060b;color:var(--text);font-family:Arial,Tahoma,sans-serif}
-button,input,select{font-family:inherit}
-button{cursor:pointer}
-.app{width:100%;max-width:520px;min-height:100vh;margin:auto;background:var(--bg);padding-bottom:90px}
-header{position:sticky;top:0;z-index:20;height:68px;display:flex;align-items:center;justify-content:space-between;padding:10px 15px;background:rgba(7,11,18,.97);border-bottom:1px solid var(--border)}
-.logo{font-size:23px;font-weight:900}.logo span{color:var(--gold)}
-.lang-btn,.icon-btn{background:var(--card2);color:#fff;border:1px solid var(--border);border-radius:20px;padding:8px 13px}
-.screen{display:none}.screen.active{display:block}.pad{padding:0 15px}
-.hero{margin-top:15px;padding:22px 18px;border-radius:22px;background:linear-gradient(135deg,#15182e,#271148 55%,#111a2d);border:1px solid #563b8e;box-shadow:0 12px 35px rgba(0,0,0,.35)}
-.hero-icon{font-size:28px}.hero h1{margin:8px 0;font-size:28px}.hero p{margin:0;line-height:1.8;color:#d3d9e3}
-.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}
-.chip{padding:6px 9px;border-radius:9px;background:#30270d;border:1px solid #5c4812;color:#ffe28b;font-size:11px}
-.section-title{margin:22px 0 11px;font-size:21px;font-weight:800}
-.card{margin:10px 0;padding:14px;border-radius:17px;background:linear-gradient(145deg,var(--card2),var(--card));border:1px solid var(--border)}
-.row{display:flex;align-items:center;justify-content:space-between;gap:10px}.grow{flex:1}
-.muted{color:var(--muted);font-size:13px}.small{color:var(--muted);font-size:11px}.gold{color:var(--gold)}
-.game-card{display:flex;align-items:center;gap:13px;cursor:pointer}
-.game-icon{width:65px;height:65px;flex:0 0 65px;display:grid;place-items:center;border-radius:16px;background:linear-gradient(145deg,#40338c,#161e45);font-size:30px}
-.game-arrow{color:#b8c2d0;font-size:25px}
-.feature-grid,.grid,.stats,.control-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.feature-grid .card,.control-grid .card{margin:0}
-.notice{margin-top:9px;padding:11px 12px;border-radius:11px;background:#121c29;color:#d8dfeb;font-size:12px;line-height:1.7}
-input,select{width:100%;margin-top:7px;padding:13px;border-radius:12px;outline:none;background:#080e17;color:#fff;border:1px solid #344054}
-label{display:block;margin-top:10px;color:#dbe2eb;font-size:13px}
-.btn{width:100%;margin-top:9px;padding:14px;border:0;border-radius:13px;background:linear-gradient(90deg,#e5a400,#ffd84c);color:#171208;font-weight:900}
-.btn-dark{background:#182230;color:#fff;border:1px solid #3a475b}.btn-red{background:#351820;color:#ff8997}
-.icon-btn{border-radius:12px}.badge{padding:5px 8px;border-radius:8px;background:#392e0d;color:#ffdb59;font-size:11px}
-.badge.ok{background:#123b2b;color:#58e4a1}.badge.red{background:#3b1720;color:#ff8593}
-.package{text-align:center;cursor:pointer}.package.selected{border-color:var(--gold);box-shadow:0 0 0 1px rgba(245,185,0,.35)}
-.package-name{font-weight:900}.package-price{margin-top:8px;color:var(--gold);font-weight:900}
-.top-back{display:flex;align-items:center;gap:10px;margin-top:15px}.balance strong{font-size:25px}
-.nav{position:fixed;left:50%;bottom:0;z-index:30;width:100%;max-width:520px;height:82px;transform:translateX(-50%);display:flex;justify-content:space-around;background:#0c121b;border-top:1px solid #2b3545}
-.nav button{min-width:60px;padding:5px;border:0;background:transparent;color:#8390a2;font-size:11px}.nav button.active{color:var(--gold)}
-.nav-icon{display:block;margin:7px;font-size:21px}
-.modal{position:fixed;inset:0;z-index:60;display:none;align-items:flex-end;background:rgba(0,0,0,.72)}
-.modal.show{display:flex}.sheet{width:100%;max-width:520px;max-height:90vh;margin:auto;padding:20px;overflow-y:auto;border-radius:25px 25px 0 0;background:#0e151f;border:1px solid #334054}
-.hidden{display:none!important}.ticket{border-right:3px solid var(--blue)}
-.danger{border-right:3px solid var(--red);background:#21141a}.success{border-right:3px solid var(--green)}
-.admin-head{margin-top:15px;padding:15px;border-radius:18px;background:linear-gradient(145deg,#111a27,#0d1420);border:1px solid #2d394b}
-.stat{min-height:85px}.stat-value{display:block;margin-top:8px;font-size:21px;font-weight:900}
-.admin-zone{margin:10px 0;padding:12px;border-radius:14px;border:1px solid #34465b}.admin-zone.sensitive{border-right:4px solid var(--red);background:#17131a}
-.sensitive-item{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #283547}
-.sensitive-item:last-child{border-bottom:0}.locked{color:#ff9aa6;font-size:12px}
-.backend-card{margin:10px 0;padding:12px;border-radius:14px;background:#0e1722;border:1px solid #31465d}
-.review-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.toast{position:fixed;left:50%;bottom:95px;z-index:100;transform:translateX(-50%);width:calc(100% - 30px);max-width:490px;padding:13px;border-radius:12px;background:#202b3a;border:1px solid #40516a;text-align:center;display:none}
-.toast.show{display:block}
-@media(max-width:360px){.hero h1{font-size:24px}.nav button{min-width:50px;font-size:10px}}
+
+*{
+  box-sizing:border-box;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+  min-height:100%;
+}
+
+body{
+  background:#03060b;
+  color:var(--text);
+  font-family:Arial,Tahoma,sans-serif;
+}
+
+button,
+input{
+  font-family:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.app{
+  width:100%;
+  max-width:520px;
+  min-height:100vh;
+  margin:auto;
+  background:var(--bg);
+  padding-bottom:90px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  height:68px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:10px 15px;
+
+  background:rgba(7,11,18,.97);
+  border-bottom:1px solid var(--border);
+}
+
+.logo{
+  font-size:23px;
+  font-weight:900;
+}
+
+.logo span{
+  color:var(--gold);
+}
+
+.header-user{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.header-btn{
+  background:var(--card2);
+  color:#fff;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:8px 11px;
+}
+
+/* =========================
+   SCREENS
+========================= */
+
+.screen{
+  display:none;
+}
+
+.screen.active{
+  display:block;
+}
+
+.pad{
+  padding:0 15px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  margin-top:15px;
+  padding:22px 18px;
+
+  border-radius:22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #15182e,
+      #271148 55%,
+      #111a2d
+    );
+
+  border:1px solid #563b8e;
+
+  box-shadow:
+    0 12px 35px rgba(0,0,0,.35);
+}
+
+.hero-icon{
+  font-size:28px;
+}
+
+.hero h1{
+  margin:8px 0;
+  font-size:28px;
+}
+
+.hero p{
+  margin:0;
+  line-height:1.8;
+  color:#d3d9e3;
+}
+
+.chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:15px;
+}
+
+.chip{
+  padding:6px 9px;
+  border-radius:9px;
+
+  background:#30270d;
+  border:1px solid #5c4812;
+
+  color:#ffe28b;
+  font-size:11px;
+}
+
+/* =========================
+   TITLES
+========================= */
+
+.section-title{
+  margin:22px 0 11px;
+  font-size:21px;
+  font-weight:800;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card{
+  margin:10px 0;
+  padding:14px;
+
+  border-radius:17px;
+
+  background:
+    linear-gradient(
+      145deg,
+      var(--card2),
+      var(--card)
+    );
+
+  border:1px solid var(--border);
+}
+
+.row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.grow{
+  flex:1;
+}
+
+.muted{
+  color:var(--muted);
+  font-size:13px;
+}
+
+.small{
+  color:var(--muted);
+  font-size:11px;
+}
+
+.gold{
+  color:var(--gold);
+}
+
+/* =========================
+   GAME CARDS
+========================= */
+
+.game-card{
+  display:flex;
+  align-items:center;
+  gap:13px;
+
+  cursor:pointer;
+}
+
+.game-icon{
+  width:65px;
+  height:65px;
+
+  flex:0 0 65px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:16px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #40338c,
+      #161e45
+    );
+
+  font-size:30px;
+}
+
+.game-arrow{
+  color:#b8c2d0;
+  font-size:25px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn{
+  width:100%;
+  margin-top:9px;
+  padding:14px;
+
+  border:0;
+  border-radius:13px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #e5a400,
+      #ffd84c
+    );
+
+  color:#171208;
+  font-weight:900;
+}
+
+.btn-dark{
+  background:#182230;
+  color:#fff;
+  border:1px solid #3a475b;
+}
+
+.btn-red{
+  background:#351820;
+  color:#ff8997;
+  border:1px solid #5c2731;
+}
+
+.btn:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+}
+
+/* =========================
+   FORMS
+========================= */
+
+.form-box{
+  padding:20px;
+  margin-top:20px;
+
+  border-radius:20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #111925,
+      #0d141e
+    );
+
+  border:1px solid var(--border);
+}
+
+.form-title{
+  font-size:25px;
+  font-weight:900;
+  margin-bottom:6px;
+}
+
+label{
+  display:block;
+  margin-top:12px;
+
+  color:#dbe2eb;
+  font-size:13px;
+}
+
+input{
+  width:100%;
+  margin-top:7px;
+  padding:13px;
+
+  border-radius:12px;
+  outline:none;
+
+  background:#080e17;
+  color:#fff;
+
+  border:1px solid #344054;
+}
+
+input:focus{
+  border-color:var(--gold);
+}
+
+/* =========================
+   PACKAGES
+========================= */
+
+.package-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+}
+
+.package{
+  text-align:center;
+  cursor:pointer;
+}
+
+.package.selected{
+  border-color:var(--gold);
+
+  box-shadow:
+    0 0 0 1px
+    rgba(245,185,0,.35);
+}
+
+.package-name{
+  font-weight:900;
+}
+
+.package-price{
+  margin-top:8px;
+  color:var(--gold);
+  font-weight:900;
+}
+
+/* =========================
+   BADGES
+========================= */
+
+.badge{
+  padding:5px 8px;
+  border-radius:8px;
+
+  background:#392e0d;
+  color:#ffdb59;
+
+  font-size:11px;
+}
+
+.badge.ok{
+  background:#123b2b;
+  color:#58e4a1;
+}
+
+.badge.red{
+  background:#3b1720;
+  color:#ff8593;
+}
+
+/* =========================
+   NAV
+========================= */
+
+.nav{
+  position:fixed;
+  left:50%;
+  bottom:0;
+  z-index:30;
+
+  width:100%;
+  max-width:520px;
+  height:82px;
+
+  transform:translateX(-50%);
+
+  display:flex;
+  justify-content:space-around;
+
+  background:#0c121b;
+  border-top:1px solid #2b3545;
+}
+
+.nav button{
+  min-width:60px;
+  padding:5px;
+
+  border:0;
+  background:transparent;
+
+  color:#8390a2;
+  font-size:11px;
+}
+
+.nav button.active{
+  color:var(--gold);
+}
+
+.nav-icon{
+  display:block;
+  margin:7px;
+  font-size:21px;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:60;
+
+  display:none;
+  align-items:flex-end;
+
+  background:rgba(0,0,0,.72);
+}
+
+.modal.show{
+  display:flex;
+}
+
+.sheet{
+  width:100%;
+  max-width:520px;
+  max-height:90vh;
+
+  margin:auto;
+  padding:20px;
+
+  overflow-y:auto;
+
+  border-radius:25px 25px 0 0;
+
+  background:#0e151f;
+  border:1px solid #334054;
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast{
+  position:fixed;
+
+  left:50%;
+  bottom:95px;
+
+  z-index:100;
+
+  transform:translateX(-50%);
+
+  width:calc(100% - 30px);
+  max-width:490px;
+
+  padding:13px;
+
+  border-radius:12px;
+
+  background:#202b3a;
+  border:1px solid #40516a;
+
+  text-align:center;
+
+  display:none;
+}
+
+.toast.show{
+  display:block;
+}
+
+/* =========================
+   AUTH
+========================= */
+
+.auth-logo{
+  text-align:center;
+  padding-top:35px;
+}
+
+.auth-logo .logo{
+  font-size:32px;
+}
+
+.auth-subtitle{
+  text-align:center;
+  color:var(--muted);
+  margin-top:7px;
+}
+
+.auth-switch{
+  margin-top:15px;
+  text-align:center;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.auth-switch button{
+  border:0;
+  background:transparent;
+  color:var(--gold);
+  font-weight:bold;
+}
+
+/* =========================
+   NOTICE
+========================= */
+
+.notice{
+  margin-top:9px;
+  padding:11px 12px;
+
+  border-radius:11px;
+
+  background:#121c29;
+
+  color:#d8dfeb;
+
+  font-size:12px;
+  line-height:1.7;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:360px){
+
+  .hero h1{
+    font-size:24px;
+  }
+
+  .nav button{
+    min-width:50px;
+    font-size:10px;
+  }
+
+}
 </style>
 </head>
 
@@ -68,895 +598,2062 @@ label{display:block;margin-top:10px;color:#dbe2eb;font-size:13px}
 
 <div class="app">
 
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
-<div class="logo"><span>TOP1</span> Sudan</div>
-<button class="lang-btn" onclick="toggleLanguage()">عربي / EN</button>
+
+  <div class="logo">
+    <span>TOP1</span> Sudan
+  </div>
+
+  <div class="header-user">
+
+    <button
+      id="headerLoginButton"
+      class="header-btn"
+      onclick="openAuth()">
+      دخول
+    </button>
+
+    <button
+      id="headerLogoutButton"
+      class="header-btn"
+      onclick="logout()"
+      style="display:none;">
+      خروج
+    </button>
+
+  </div>
+
 </header>
 
-<!-- الرئيسية -->
-<section id="home" class="screen active">
+
+<!-- =========================
+     HOME
+========================= -->
+
+<section
+  id="homeScreen"
+  class="screen active">
+
 <div class="pad">
 
-<div class="hero">
-<div class="hero-icon">⚡</div>
-<h1>اشحن ألعابك بسهولة</h1>
-<p>متجر TOP1 Sudan للشحن الرقمي والألعاب. اختر اللعبة والبـاقة وأرسل طلبك بسهولة.</p>
-<div class="chips">
-<span class="chip">⚡ شحن سريع</span>
-<span class="chip">🔒 دفع آمن</span>
-<span class="chip">🇸🇩 بالجنيه السوداني</span>
-</div>
+  <div class="hero">
+
+    <div class="hero-icon">⚡</div>
+
+    <h1>
+      اشحن ألعابك بسهولة
+    </h1>
+
+    <p>
+      متجر TOP1 Sudan للشحن الرقمي والألعاب.
+      اختر اللعبة والباقة وأرسل طلبك بسهولة.
+    </p>
+
+    <div class="chips">
+
+      <span class="chip">
+        ⚡ شحن سريع
+      </span>
+
+      <span class="chip">
+        🔒 دفع آمن
+      </span>
+
+      <span class="chip">
+        🇸🇩 بالجنيه السوداني
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <div class="section-title">
+    الألعاب
+  </div>
+
+
+  <div
+    class="card game-card"
+    onclick="openGame('Free Fire')">
+
+    <div class="game-icon">
+      🔥
+    </div>
+
+    <div class="grow">
+
+      <b>
+        Free Fire
+      </b>
+
+      <div class="muted">
+        شحن Diamonds
+      </div>
+
+    </div>
+
+    <div class="game-arrow">
+      ‹
+    </div>
+
+  </div>
+
+
+  <div
+    class="card game-card"
+    onclick="openGame('PUBG Mobile')">
+
+    <div class="game-icon">
+      🎮
+    </div>
+
+    <div class="grow">
+
+      <b>
+        PUBG Mobile
+      </b>
+
+      <div class="muted">
+        شحن UC
+      </div>
+
+    </div>
+
+    <div class="game-arrow">
+      ‹
+    </div>
+
+  </div>
+
+
+  <div
+    class="card game-card"
+    onclick="openGame('Mobile Legends')">
+
+    <div class="game-icon">
+      ⚔️
+    </div>
+
+    <div class="grow">
+
+      <b>
+        Mobile Legends
+      </b>
+
+      <div class="muted">
+        شحن Diamonds
+      </div>
+
+    </div>
+
+    <div class="game-arrow">
+      ‹
+    </div>
+
+  </div>
+
+
+  <div class="section-title">
+    لماذا TOP1 Sudan؟
+  </div>
+
+
+  <div class="card">
+
+    <div style="font-size:25px">
+      ⚡
+    </div>
+
+    <b>
+      شحن سريع
+    </b>
+
+    <div class="small">
+      تنفيذ الطلبات بأسرع وقت
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <div style="font-size:25px">
+      🔐
+    </div>
+
+    <b>
+      آمن
+    </b>
+
+    <div class="small">
+      حماية حسابك وبياناتك
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <div style="font-size:25px">
+      💰
+    </div>
+
+    <b>
+      أسعار مناسبة
+    </b>
+
+    <div class="small">
+      الدفع بالجنيه السوداني
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <div style="font-size:25px">
+      🎧
+    </div>
+
+    <b>
+      دعم العملاء
+    </b>
+
+    <div class="small">
+      مساعدة عند الحاجة
+    </div>
+
+  </div>
+
 </div>
 
-<div class="section-title">الألعاب</div>
-
-<div class="card game-card" onclick="openGame('Free Fire')">
-<div class="game-icon">🔥</div>
-<div class="grow"><b>Free Fire</b><div class="muted">شحن Diamonds</div></div>
-<div class="game-arrow">‹</div>
-</div>
-
-<div class="card game-card" onclick="openGame('PUBG Mobile')">
-<div class="game-icon">🎮</div>
-<div class="grow"><b>PUBG Mobile</b><div class="muted">شحن UC</div></div>
-<div class="game-arrow">‹</div>
-</div>
-
-<div class="card game-card" onclick="openGame('Mobile Legends')">
-<div class="game-icon">⚔️</div>
-<div class="grow"><b>Mobile Legends</b><div class="muted">شحن Diamonds</div></div>
-<div class="game-arrow">‹</div>
-</div>
-
-<div class="section-title">لماذا TOP1 Sudan؟</div>
-
-<div class="feature-grid">
-<div class="card"><div style="font-size:25px">⚡</div><b>سريع</b><div class="small">تنفيذ الطلبات بأسرع وقت</div></div>
-<div class="card"><div style="font-size:25px">🔐</div><b>آمن</b><div class="small">حماية حسابك وبياناتك</div></div>
-<div class="card"><div style="font-size:25px">💰</div><b>أسعار مناسبة</b><div class="small">الدفع بالجنيه السوداني</div></div>
-<div class="card"><div style="font-size:25px">🎧</div><b>دعم العملاء</b><div class="small">مساعدة عند الحاجة</div></div>
-</div>
-
-<div class="card notice"><b>ملاحظة:</b> الشحن يتم يدويًا حاليًا إلى حين تفعيل API المورد.</div>
-</div>
 </section>
 
-<!-- المتجر -->
-<section id="store" class="screen">
+
+<!-- =========================
+     STORE
+========================= -->
+
+<section
+  id="storeScreen"
+  class="screen">
+
 <div class="pad">
 
-<div class="top-back">
-<button class="icon-btn" onclick="showScreen('home')">←</button>
-<div><b>المتجر</b><div class="small">اختر اللعبة والمنتج</div></div>
+  <div class="section-title">
+    المتجر
+  </div>
+
+  <div
+    id="storeLoginMessage"
+    class="card"
+    style="display:none;">
+
+    <b>
+      🔐 تسجيل الدخول مطلوب
+    </b>
+
+    <div class="muted">
+      يجب تسجيل الدخول حتى تتمكن من مشاهدة الباقات والأسعار وإرسال الطلبات.
+    </div>
+
+    <button
+      class="btn"
+      onclick="openAuth()">
+
+      تسجيل الدخول
+
+    </button>
+
+  </div>
+
+
+  <div id="storeContent">
+
+    <div class="card">
+
+      <b>
+        اختر اللعبة
+      </b>
+
+      <select
+        id="gameSelect"
+        onchange="loadPackages()"
+        style="
+          width:100%;
+          margin-top:10px;
+          padding:13px;
+          border-radius:12px;
+          background:#080e17;
+          color:#fff;
+          border:1px solid #344054;
+        ">
+
+        <option value="Free Fire">
+          Free Fire
+        </option>
+
+        <option value="PUBG Mobile">
+          PUBG Mobile
+        </option>
+
+        <option value="Mobile Legends">
+          Mobile Legends
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <div class="section-title">
+      الباقات
+    </div>
+
+
+    <div
+      id="packages"
+      class="package-grid">
+    </div>
+
+
+    <div class="card">
+
+      <label>
+        معرّف اللاعب
+      </label>
+
+      <input
+        id="playerId"
+        type="text"
+        placeholder="أدخل ID اللاعب">
+
+
+      <button
+        id="continueOrderButton"
+        class="btn"
+        onclick="continueOrder()">
+
+        متابعة الطلب
+
+      </button>
+
+    </div>
+
+  </div>
+
 </div>
 
-<div class="card">
-<label>اللعبة</label>
-<select id="gameSelect" onchange="loadPackages()">
-<option value="Free Fire">Free Fire</option>
-<option value="PUBG Mobile">PUBG Mobile</option>
-<option value="Mobile Legends">Mobile Legends</option>
-</select>
-</div>
-
-<div class="section-title">الباقات</div>
-<div id="packages" class="grid"></div>
-
-<div class="card">
-<label>معرّف اللاعب</label>
-<input id="playerId" type="text" placeholder="أدخل ID اللاعب">
-
-<label>ملاحظات</label>
-<input id="orderNote" type="text" placeholder="اختياري">
-
-<button class="btn" onclick="continueOrder()">متابعة الطلب</button>
-</div>
-
-</div>
 </section>
 
-<!-- الطلبات -->
-<section id="orders" class="screen">
+
+<!-- =========================
+     ORDERS
+========================= -->
+
+<section
+  id="ordersScreen"
+  class="screen">
+
 <div class="pad">
-<div class="section-title">طلباتي</div>
-<div id="ordersList"></div>
-<div id="emptyOrders" class="card">
-<div style="font-size:30px">📦</div>
-<b>لا توجد طلبات حتى الآن</b>
-<div class="muted">ستظهر طلباتك هنا بعد إتمام أول عملية شراء.</div>
+
+  <div class="section-title">
+    طلباتي
+  </div>
+
+  <div
+    id="ordersLoginMessage"
+    class="card">
+
+    <b>
+      🔐 تسجيل الدخول مطلوب
+    </b>
+
+    <div class="muted">
+      سجل الدخول لمشاهدة طلباتك.
+    </div>
+
+    <button
+      class="btn"
+      onclick="openAuth()">
+
+      تسجيل الدخول
+
+    </button>
+
+  </div>
+
+
+  <div
+    id="ordersContent"
+    style="display:none;">
+
+    <div id="ordersList">
+    </div>
+
+  </div>
+
 </div>
-</div>
+
 </section>
 
-<!-- الحساب -->
-<section id="account" class="screen">
-<div class="pad">
-<div class="section-title">حسابي</div>
 
-<div class="card balance">
-<div class="muted">الرصيد</div>
-<strong><span id="balance">0</span> ج.س</strong>
-<button class="btn btn-dark" onclick="openTopup()">إضافة رصيد</button>
-</div>
+<!-- =========================
+     ACCOUNT
+========================= -->
 
-<div class="card">
-<div class="row">
-<div><b>البيانات الشخصية</b><div class="small">الاسم ورقم الهاتف</div></div>
-<button class="icon-btn" onclick="openProfile()">تعديل</button>
-</div>
-</div>
+<section
+  id="accountScreen"
+  class="screen">
 
-<div class="card">
-<div class="row">
-<div><b>الإشعارات</b><div class="small">تحديثات الطلبات والعروض</div></div>
-<button class="icon-btn" onclick="showNotice('إعدادات الإشعارات جاهزة')">⚙️</button>
-</div>
-</div>
-
-<div class="card">
-<div class="row">
-<div><b>الوضع الليلي</b><div class="small">مظهر التطبيق</div></div>
-<button class="icon-btn" onclick="toggleTheme()">🌙</button>
-</div>
-</div>
-</div>
-</section>
-
-<!-- الدعم -->
-<section id="support" class="screen">
-<div class="pad">
-<div class="section-title">الدعم</div>
-
-<div class="card">
-<b>هل تحتاج إلى مساعدة؟</b>
-<p class="muted">يمكنك التواصل مع الدعم في حال وجود مشكلة في الدفع أو الطلب أو الحساب.</p>
-<button class="btn" onclick="openSupport()">فتح تذكرة دعم</button>
-</div>
-
-<div class="card danger">
-<b>استعادة الحساب</b>
-<p class="muted">إذا فقدت رقم الهاتف أو بيانات الدخول، يمكن طلب استعادة الحساب بعد إثبات ملكيته.</p>
-<div class="notice">⚠️ لا يتم عرض أدوات استعادة الحساب الحساسة للمستخدمين.</div>
-<button class="btn btn-dark" onclick="openRecovery()">طلب استعادة الحساب</button>
-</div>
-
-</div>
-</section>
-
-<!-- الإدارة -->
-<section id="admin" class="screen">
 <div class="pad">
 
-<div class="admin-head">
-<div class="row">
-<div><div class="small">TOP1 Sudan</div><h2>لوحة الإدارة</h2></div>
-<span class="badge">ADMIN</span>
-</div>
-<div class="notice">إدارة الطلبات والإحصائيات وإعدادات المتجر.</div>
-</div>
+  <div class="section-title">
+    حسابي
+  </div>
 
-<div class="section-title">الإحصائيات</div>
 
-<div class="stats">
-<div class="card stat"><div class="small">الطلبات</div><b id="adminOrders" class="stat-value">0</b></div>
-<div class="card stat"><div class="small">قيد المراجعة</div><b id="adminPending" class="stat-value">0</b></div>
-<div class="card stat"><div class="small">إجمالي المبيعات</div><b id="adminSales" class="stat-value">0</b></div>
-<div class="card stat"><div class="small">الدعم</div><b id="adminTickets" class="stat-value">0</b></div>
-</div>
+  <div
+    id="accountLoginMessage"
+    class="card">
 
-<div class="section-title">إدارة الطلبات</div>
-<div id="adminOrdersList"></div>
+    <b>
+      🔐 سجل الدخول أولًا
+    </b>
 
-<div class="section-title">إعدادات النظام</div>
+    <div class="muted">
+      يمكنك إدارة حسابك بعد تسجيل الدخول.
+    </div>
 
-<div class="control-grid">
-<div class="card">
-<b>اسم المتجر</b>
-<input id="storeName" value="TOP1 Sudan">
-<button class="btn" onclick="saveSetting('storeName')">حفظ</button>
-</div>
+    <button
+      class="btn"
+      onclick="openAuth()">
 
-<div class="card">
-<b>العملة</b>
-<select id="currency">
-<option value="SDG">الجنيه السوداني</option>
-<option value="USD">الدولار</option>
-</select>
-<button class="btn" onclick="saveSetting('currency')">حفظ</button>
-</div>
-</div>
+      تسجيل الدخول
 
-<div class="section-title">العناصر الحساسة</div>
+    </button>
 
-<div class="admin-zone sensitive">
-<div class="notice danger">🔒 هذه المنطقة محمية. لا يتم تعديل مفاتيح API أو بيانات الدفع من واجهة العميل.</div>
+  </div>
 
-<div class="sensitive-item">
-<div><b>مفاتيح API</b><div class="small">ربط الموردين وخدمات الشحن</div></div>
-<span class="locked">🔒 محمي</span>
-</div>
 
-<div class="sensitive-item">
-<div><b>مفاتيح الدفع</b><div class="small">بيانات خدمات الدفع</div></div>
-<span class="locked">🔒 محمي</span>
-</div>
+  <div
+    id="accountContent"
+    style="display:none;">
 
-<div class="sensitive-item">
-<div><b>صلاحيات المدير</b><div class="small">المستخدمون والصلاحيات</div></div>
-<span class="locked">🔒 محمي</span>
-</div>
+    <div class="card">
 
-<div class="sensitive-item">
-<div><b>قاعدة البيانات</b><div class="small">بيانات العملاء والطلبات</div></div>
-<span class="locked">🔒 محمي</span>
-</div>
-</div>
+      <div class="small">
+        البريد الإلكتروني
+      </div>
 
-<div class="section-title">حالة API</div>
+      <b id="accountEmail">
+        -
+      </b>
 
-<div class="backend-card">
-<div class="row">
-<div><b>حالة الربط</b><div class="small">API غير مضاف حاليًا</div></div>
-<span class="badge">PRE-API</span>
-</div>
-<div class="notice">يمكن إضافة API المورد لاحقًا دون تغيير واجهة العميل.</div>
-</div>
+    </div>
+
+
+    <div class="card">
+
+      <b>
+        حالة الحساب
+      </b>
+
+      <div
+        class="notice">
+
+        الحساب متصل بنجاح بـ Supabase.
+
+      </div>
+
+    </div>
+
+
+    <button
+      class="btn btn-red"
+      onclick="logout()">
+
+      تسجيل الخروج
+
+    </button>
+
+  </div>
 
 </div>
+
 </section>
 
-<!-- التنقل -->
+
+<!-- =========================
+     SUPPORT
+========================= -->
+
+<section
+  id="supportScreen"
+  class="screen">
+
+<div class="pad">
+
+  <div class="section-title">
+    الدعم
+  </div>
+
+
+  <div class="card">
+
+    <b>
+      🎧 هل تحتاج إلى مساعدة؟
+    </b>
+
+    <p class="muted">
+      تواصل مع فريق TOP1 Sudan عند وجود مشكلة في الحساب أو الطلب.
+    </p>
+
+    <button
+      class="btn"
+      onclick="openSupport()">
+
+      فتح تذكرة دعم
+
+    </button>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
 <nav class="nav">
-<button id="nav-home" class="active" onclick="showScreen('home')"><span class="nav-icon">⌂</span>الرئيسية</button>
-<button id="nav-store" onclick="showScreen('store')"><span class="nav-icon">🛒</span>المتجر</button>
-<button id="nav-orders" onclick="showScreen('orders')"><span class="nav-icon">📦</span>طلباتي</button>
-<button id="nav-account" onclick="showScreen('account')"><span class="nav-icon">👤</span>حسابي</button>
-<button id="nav-support" onclick="showScreen('support')"><span class="nav-icon">🎧</span>الدعم</button>
+
+<button
+  id="navHome"
+  class="active"
+  onclick="showScreen('homeScreen')">
+
+  <span class="nav-icon">
+    ⌂
+  </span>
+
+  الرئيسية
+
+</button>
+
+
+<button
+  id="navStore"
+  onclick="showScreen('storeScreen')">
+
+  <span class="nav-icon">
+    🛒
+  </span>
+
+  المتجر
+
+</button>
+
+
+<button
+  id="navOrders"
+  onclick="showScreen('ordersScreen')">
+
+  <span class="nav-icon">
+    📦
+  </span>
+
+  طلباتي
+
+</button>
+
+
+<button
+  id="navAccount"
+  onclick="showScreen('accountScreen')">
+
+  <span class="nav-icon">
+    👤
+  </span>
+
+  حسابي
+
+</button>
+
+
+<button
+  id="navSupport"
+  onclick="showScreen('supportScreen')">
+
+  <span class="nav-icon">
+    🎧
+  </span>
+
+  الدعم
+
+</button>
+
 </nav>
 
 </div>
 
-<!-- الدفع -->
-<div id="paymentModal" class="modal">
+
+<!-- =========================
+     AUTH MODAL
+========================= -->
+
+<div
+  id="authModal"
+  class="modal">
+
 <div class="sheet">
 
-<div class="row">
-<div><b>إتمام الطلب</b><div class="small">راجع بيانات طلبك قبل الدفع</div></div>
-<button class="icon-btn" onclick="closeModal('paymentModal')">✕</button>
+  <div class="row">
+
+    <div>
+      <b id="authTitle">
+        تسجيل الدخول
+      </b>
+    </div>
+
+    <button
+      class="header-btn"
+      onclick="closeModal('authModal')">
+
+      ✕
+
+    </button>
+
+  </div>
+
+
+  <div class="auth-logo">
+
+    <div class="logo">
+      <span>TOP1</span> Sudan
+    </div>
+
+    <div class="auth-subtitle">
+      حسابك في متجر TOP1 Sudan
+    </div>
+
+  </div>
+
+
+  <!-- LOGIN -->
+
+  <div id="loginForm">
+
+    <div class="form-box">
+
+      <div class="form-title">
+        تسجيل الدخول
+      </div>
+
+      <div class="small">
+        أدخل بريدك الإلكتروني وكلمة المرور.
+      </div>
+
+
+      <label>
+        البريد الإلكتروني
+      </label>
+
+      <input
+        id="loginEmail"
+        type="email"
+        placeholder="example@email.com">
+
+
+      <label>
+        كلمة المرور
+      </label>
+
+      <input
+        id="loginPassword"
+        type="password"
+        placeholder="كلمة المرور">
+
+
+      <button
+        class="btn"
+        onclick="loginUser()">
+
+        تسجيل الدخول
+
+      </button>
+
+    </div>
+
+
+    <div class="auth-switch">
+
+      ليس لديك حساب؟
+
+      <button onclick="showRegisterForm()">
+        إنشاء حساب
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- REGISTER -->
+
+  <div
+    id="registerForm"
+    style="display:none;">
+
+    <div class="form-box">
+
+      <div class="form-title">
+        إنشاء حساب
+      </div>
+
+      <div class="small">
+        أنشئ حسابك للبدء في استخدام المتجر.
+      </div>
+
+
+      <label>
+        البريد الإلكتروني
+      </label>
+
+      <input
+        id="registerEmail"
+        type="email"
+        placeholder="example@email.com">
+
+
+      <label>
+        كلمة المرور
+      </label>
+
+      <input
+        id="registerPassword"
+        type="password"
+        placeholder="6 أحرف أو أكثر">
+
+
+      <button
+        class="btn"
+        onclick="registerUser()">
+
+        إنشاء الحساب
+
+      </button>
+
+    </div>
+
+
+    <div class="auth-switch">
+
+      لديك حساب بالفعل؟
+
+      <button onclick="showLoginForm()">
+        تسجيل الدخول
+      </button>
+
+    </div>
+
+  </div>
+
 </div>
 
-<div class="card">
-<div class="row"><span class="muted">اللعبة</span><b id="checkoutGame">-</b></div>
-<div class="row"><span class="muted">الباقة</span><b id="checkoutPackage">-</b></div>
-<div class="row"><span class="muted">ID اللاعب</span><b id="checkoutPlayer">-</b></div>
-<div class="row"><span class="muted">السعر</span><b class="gold" id="checkoutPrice">0 ج.س</b></div>
 </div>
 
-<div class="section-title">طريقة الدفع</div>
 
-<div class="card">
-<b>الدفع اليدوي</b>
-<div class="small">ماي كاشي — الجنيه السوداني</div>
-</div>
+<!-- =========================
+     ORDER MODAL
+========================= -->
 
-<div class="card">
-<b>بيانات التحويل</b>
-<div class="notice">
-<div>المحفظة: <b>ماي كاشي</b></div>
-<div>رقم الحساب: <b>713664</b></div>
-<div>العملة: <b>الجنيه السوداني</b></div>
-</div>
+<div
+  id="orderModal"
+  class="modal">
 
-<label>رقم العملية / مرجع التحويل</label>
-<input id="paymentReference" type="text" placeholder="أدخل رقم العملية">
-
-<label>رقم الهاتف المحوّل منه</label>
-<input id="senderPhone" type="tel" placeholder="09xxxxxxxx">
-
-<div class="notice">بعد إرسال الطلب سيتم وضعه في حالة <b>بانتظار مراجعة الدفع</b>.</div>
-
-<button class="btn" onclick="submitOrder()">إرسال الطلب</button>
-</div>
-
-</div>
-</div>
-
-<!-- الملف الشخصي -->
-<div id="profileModal" class="modal">
 <div class="sheet">
 
-<div class="row">
-<b>البيانات الشخصية</b>
-<button class="icon-btn" onclick="closeModal('profileModal')">✕</button>
+  <div class="row">
+
+    <b>
+      تأكيد الطلب
+    </b>
+
+    <button
+      class="header-btn"
+      onclick="closeModal('orderModal')">
+
+      ✕
+
+    </button>
+
+  </div>
+
+
+  <div class="card">
+
+    <div class="row">
+
+      <span class="muted">
+        اللعبة
+      </span>
+
+      <b id="checkoutGame">
+        -
+      </b>
+
+    </div>
+
+
+    <div class="row">
+
+      <span class="muted">
+        الباقة
+      </span>
+
+      <b id="checkoutPackage">
+        -
+      </b>
+
+    </div>
+
+
+    <div class="row">
+
+      <span class="muted">
+        ID اللاعب
+      </span>
+
+      <b id="checkoutPlayer">
+        -
+      </b>
+
+    </div>
+
+
+    <div class="row">
+
+      <span class="muted">
+        السعر
+      </span>
+
+      <b
+        id="checkoutPrice"
+        class="gold">
+
+        0 ج.س
+
+      </b>
+
+    </div>
+
+  </div>
+
+
+  <div class="notice">
+
+    💳 في الخطوة التالية سنضيف نظام الدفع وإرسال الطلب إلى Supabase.
+
+  </div>
+
+
+  <button
+    class="btn"
+    onclick="createDemoOrder()">
+
+    تأكيد الطلب
+
+  </button>
+
 </div>
 
-<label>الاسم</label>
-<input id="profileName" type="text" placeholder="اسمك">
-
-<label>رقم الهاتف</label>
-<input id="profilePhone" type="tel" placeholder="09xxxxxxxx">
-
-<button class="btn" onclick="saveProfile()">حفظ</button>
-
-</div>
 </div>
 
-<!-- إضافة رصيد -->
-<div id="topupModal" class="modal">
+
+<!-- =========================
+     SUPPORT MODAL
+========================= -->
+
+<div
+  id="supportModal"
+  class="modal">
+
 <div class="sheet">
 
-<div class="row">
-<b>إضافة رصيد</b>
-<button class="icon-btn" onclick="closeModal('topupModal')">✕</button>
-</div>
+  <div class="row">
 
-<div class="notice">التحويل يتم يدويًا حاليًا.</div>
+    <b>
+      تذكرة دعم
+    </b>
 
-<div class="card">
-<b>ماي كاشي</b>
-<div class="muted">رقم الحساب: 713664</div>
-</div>
+    <button
+      class="header-btn"
+      onclick="closeModal('supportModal')">
 
-<label>المبلغ</label>
-<input id="topupAmount" type="number" min="1" placeholder="مثال: 5000">
+      ✕
 
-<label>رقم العملية</label>
-<input id="topupReference" type="text" placeholder="رقم مرجع التحويل">
+    </button>
 
-<button class="btn" onclick="submitTopup()">إرسال طلب الإضافة</button>
+  </div>
 
-</div>
-</div>
 
-<!-- الدعم -->
-<div id="supportModal" class="modal">
-<div class="sheet">
+  <label>
+    المشكلة
+  </label>
 
-<div class="row">
-<b>فتح تذكرة دعم</b>
-<button class="icon-btn" onclick="closeModal('supportModal')">✕</button>
-</div>
+  <input
+    id="supportMessage"
+    type="text"
+    placeholder="اكتب المشكلة">
 
-<label>نوع المشكلة</label>
-<select id="supportType">
-<option>مشكلة في الطلب</option>
-<option>مشكلة في الدفع</option>
-<option>مشكلة في الحساب</option>
-<option>استفسار</option>
-<option>أخرى</option>
-</select>
 
-<label>التفاصيل</label>
-<input id="supportMessage" type="text" placeholder="اكتب تفاصيل المشكلة">
+  <button
+    class="btn"
+    onclick="submitSupport()">
 
-<button class="btn" onclick="submitSupport()">إرسال التذكرة</button>
+    إرسال
+
+  </button>
 
 </div>
-</div>
-
-<!-- استعادة الحساب -->
-<div id="recoveryModal" class="modal">
-<div class="sheet">
-
-<div class="row">
-<b>استعادة الحساب</b>
-<button class="icon-btn" onclick="closeModal('recoveryModal')">✕</button>
-</div>
-
-<div class="notice danger">
-لأمان الحساب، تتم مراجعة طلب الاستعادة يدويًا.
-</div>
-
-<label>رقم الهاتف المرتبط بالحساب</label>
-<input id="recoveryPhone" type="tel" placeholder="09xxxxxxxx">
-
-<label>سبب الاستعادة</label>
-<input id="recoveryReason" type="text" placeholder="اكتب سبب طلب الاستعادة">
-
-<button class="btn" onclick="submitRecovery()">إرسال طلب الاستعادة</button>
 
 </div>
+
+
+<!-- =========================
+     TOAST
+========================= -->
+
+<div
+  id="toast"
+  class="toast">
 </div>
 
-<div id="toast" class="toast"></div>
+
+<!-- ==================================================
+     SUPABASE
+     ضع بيانات مشروعك هنا
+================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-const packagesData={
-"Free Fire":[
-{name:"100 Diamonds",price:3500},
-{name:"310 Diamonds",price:9500},
-{name:"520 Diamonds",price:15000},
-{name:"1060 Diamonds",price:29000},
-{name:"2180 Diamonds",price:55000}
-],
-"PUBG Mobile":[
-{name:"60 UC",price:3500},
-{name:"325 UC",price:15000},
-{name:"660 UC",price:29000},
-{name:"1800 UC",price:75000},
-{name:"3850 UC",price:145000}
-],
-"Mobile Legends":[
-{name:"86 Diamonds",price:3500},
-{name:"172 Diamonds",price:6500},
-{name:"257 Diamonds",price:9500},
-{name:"706 Diamonds",price:25000},
-{name:"2195 Diamonds",price:70000}
-]};
 
-let selectedPackage=null;
+/* ==================================================
+   🔴🔴🔴 مكان بيانات Supabase 🔴🔴🔴
 
-let orders=JSON.parse(localStorage.getItem("top1_orders")||"[]");
+   ضع رابط المشروع هنا
+================================================== */
 
-let tickets=JSON.parse(localStorage.getItem("top1_tickets")||"[]");
+const SUPABASE_URL =
+"https://dmuaimuwnekpbfcyjtpp.supabase.co/rest/v1/";
 
-let topups=JSON.parse(localStorage.getItem("top1_topups")||"[]");
 
-let profile=JSON.parse(localStorage.getItem("top1_profile")||'{"name":"","phone":""}');
+/* ==================================================
+   🔴🔴🔴 ضع Publishable Key هنا 🔴🔴🔴
 
-let balance=Number(localStorage.getItem("top1_balance")||0);
+   لا تضع service_role
+   لا تضع Secret Key
+================================================== */
 
-function money(value){
-return Number(value||0).toLocaleString("ar-EG")+" ج.س";
-}
+const SUPABASE_KEY =
+"sb_publishable_ypSkZCdHoexQmD37jRSwxA_uESopWPs";
 
-function saveData(){
-localStorage.setItem("top1_orders",JSON.stringify(orders));
-localStorage.setItem("top1_tickets",JSON.stringify(tickets));
-localStorage.setItem("top1_topups",JSON.stringify(topups));
-localStorage.setItem("top1_profile",JSON.stringify(profile));
-localStorage.setItem("top1_balance",String(balance));
-}
 
-function escapeHTML(value){
-return String(value??"")
-.replaceAll("&","&amp;")
-.replaceAll("<","&lt;")
-.replaceAll(">","&gt;")
-.replaceAll('"',"&quot;")
-.replaceAll("'","&#039;");
-}
+/* ==================================================
+   إنشاء اتصال Supabase
+================================================== */
+
+const supabaseClient =
+  window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
+
+/* ==================================================
+   بيانات الباقات
+================================================== */
+
+const packagesData = {
+
+  "Free Fire":[
+
+    {
+      name:"100 Diamonds",
+      price:3500
+    },
+
+    {
+      name:"310 Diamonds",
+      price:9500
+    },
+
+    {
+      name:"520 Diamonds",
+      price:15000
+    },
+
+    {
+      name:"1060 Diamonds",
+      price:29000
+    },
+
+    {
+      name:"2180 Diamonds",
+      price:55000
+    }
+
+  ],
+
+  "PUBG Mobile":[
+
+    {
+      name:"60 UC",
+      price:3500
+    },
+
+    {
+      name:"325 UC",
+      price:15000
+    },
+
+    {
+      name:"660 UC",
+      price:29000
+    },
+
+    {
+      name:"1800 UC",
+      price:75000
+    },
+
+    {
+      name:"3850 UC",
+      price:145000
+    }
+
+  ],
+
+  "Mobile Legends":[
+
+    {
+      name:"86 Diamonds",
+      price:3500
+    },
+
+    {
+      name:"172 Diamonds",
+      price:6500
+    },
+
+    {
+      name:"257 Diamonds",
+      price:9500
+    },
+
+    {
+      name:"706 Diamonds",
+      price:25000
+    },
+
+    {
+      name:"2195 Diamonds",
+      price:70000
+    }
+
+  ]
+
+};
+
+
+let selectedPackage = null;
+
+let currentUser = null;
+
+
+/* ==================================================
+   أدوات عامة
+================================================== */
 
 function showNotice(message){
-const toast=document.getElementById("toast");
-toast.textContent=message;
-toast.classList.add("show");
-setTimeout(()=>toast.classList.remove("show"),2500);
+
+  const toast =
+    document.getElementById("toast");
+
+  toast.textContent = message;
+
+  toast.classList.add("show");
+
+  setTimeout(function(){
+
+    toast.classList.remove("show");
+
+  },3000);
+
 }
+
+
+function openModal(id){
+
+  const modal =
+    document.getElementById(id);
+
+  if(modal){
+
+    modal.classList.add("show");
+
+  }
+
+}
+
+
+function closeModal(id){
+
+  const modal =
+    document.getElementById(id);
+
+  if(modal){
+
+    modal.classList.remove("show");
+
+  }
+
+}
+
+
+function money(value){
+
+  return Number(value || 0)
+    .toLocaleString("ar-EG")
+    + " ج.س";
+
+}
+
+
+/* ==================================================
+   التنقل
+================================================== */
 
 function showScreen(id){
 
-document.querySelectorAll(".screen").forEach(x=>x.classList.remove("active"));
+  const protectedScreens = [
 
-const screen=document.getElementById(id);
-if(screen)screen.classList.add("active");
+    "storeScreen",
+    "ordersScreen",
+    "accountScreen"
 
-document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active"));
+  ];
 
-const nav=document.getElementById("nav-"+id);
-if(nav)nav.classList.add("active");
 
-if(id==="orders")renderOrders();
-if(id==="account")updateBalance();
-if(id==="admin")renderAdmin();
+  if(
+    protectedScreens.includes(id)
+    &&
+    !currentUser
+  ){
 
-window.scrollTo({top:0,behavior:"smooth"});
+    openAuth();
+
+    showNotice(
+      "يجب تسجيل الدخول أولًا"
+    );
+
+    return;
+
+  }
+
+
+  document
+    .querySelectorAll(".screen")
+    .forEach(function(screen){
+
+      screen.classList.remove("active");
+
+    });
+
+
+  const screen =
+    document.getElementById(id);
+
+  if(screen){
+
+    screen.classList.add("active");
+
+  }
+
+
+  document
+    .querySelectorAll(".nav button")
+    .forEach(function(button){
+
+      button.classList.remove("active");
+
+    });
+
+
+  const navMap = {
+
+    homeScreen:"navHome",
+    storeScreen:"navStore",
+    ordersScreen:"navOrders",
+    accountScreen:"navAccount",
+    supportScreen:"navSupport"
+
+  };
+
+
+  const nav =
+    document.getElementById(navMap[id]);
+
+  if(nav){
+
+    nav.classList.add("active");
+
+  }
+
+
+  if(id === "ordersScreen"){
+
+    loadOrders();
+
+  }
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
 }
+
+
+/* ==================================================
+   فتح لعبة
+================================================== */
 
 function openGame(game){
-showScreen("store");
-document.getElementById("gameSelect").value=game;
-loadPackages();
+
+  if(!currentUser){
+
+    openAuth();
+
+    showNotice(
+      "سجل الدخول أولًا لرؤية الباقات"
+    );
+
+    return;
+
+  }
+
+
+  showScreen("storeScreen");
+
+  document
+    .getElementById("gameSelect")
+    .value = game;
+
+  loadPackages();
+
 }
+
+
+/* ==================================================
+   الباقات
+================================================== */
 
 function loadPackages(){
 
-const game=document.getElementById("gameSelect").value;
-const container=document.getElementById("packages");
+  const game =
+    document
+      .getElementById("gameSelect")
+      .value;
 
-container.innerHTML="";
-selectedPackage=null;
 
-(packagesData[game]||[]).forEach(item=>{
+  const container =
+    document.getElementById("packages");
 
-const card=document.createElement("div");
-card.className="card package";
 
-card.innerHTML=
-`<div class="package-name">${escapeHTML(item.name)}</div>
-<div class="package-price">${money(item.price)}</div>`;
+  container.innerHTML = "";
 
-card.onclick=()=>{
+  selectedPackage = null;
 
-document.querySelectorAll(".package").forEach(x=>x.classList.remove("selected"));
 
-card.classList.add("selected");
+  const packages =
+    packagesData[game] || [];
 
-selectedPackage={
-game:game,
-name:item.name,
-price:item.price
-};
-};
 
-container.appendChild(card);
-});
+  packages.forEach(function(item){
+
+    const card =
+      document.createElement("div");
+
+
+    card.className =
+      "card package";
+
+
+    card.innerHTML = `
+
+      <div class="package-name">
+        ${item.name}
+      </div>
+
+      <div class="package-price">
+        ${money(item.price)}
+      </div>
+
+    `;
+
+
+    card.addEventListener(
+      "click",
+      function(){
+
+        document
+          .querySelectorAll(".package")
+          .forEach(function(x){
+
+            x.classList.remove(
+              "selected"
+            );
+
+          });
+
+
+        card.classList.add(
+          "selected"
+        );
+
+
+        selectedPackage = {
+
+          game:game,
+
+          name:item.name,
+
+          price:item.price
+
+        };
+
+      }
+    );
+
+
+    container.appendChild(card);
+
+  });
+
 }
+
+
+/* ==================================================
+   متابعة الطلب
+================================================== */
 
 function continueOrder(){
 
-if(!selectedPackage){
-showNotice("اختر الباقة أولًا");
-return;
+  if(!currentUser){
+
+    openAuth();
+
+    return;
+
+  }
+
+
+  if(!selectedPackage){
+
+    showNotice(
+      "اختر الباقة أولًا"
+    );
+
+    return;
+
+  }
+
+
+  const player =
+    document
+      .getElementById("playerId")
+      .value
+      .trim();
+
+
+  if(!player){
+
+    showNotice(
+      "أدخل ID اللاعب"
+    );
+
+    return;
+
+  }
+
+
+  document
+    .getElementById("checkoutGame")
+    .textContent =
+      selectedPackage.game;
+
+
+  document
+    .getElementById("checkoutPackage")
+    .textContent =
+      selectedPackage.name;
+
+
+  document
+    .getElementById("checkoutPlayer")
+    .textContent =
+      player;
+
+
+  document
+    .getElementById("checkoutPrice")
+    .textContent =
+      money(
+        selectedPackage.price
+      );
+
+
+  openModal("orderModal");
+
 }
 
-const player=document.getElementById("playerId").value.trim();
 
-if(!player){
-showNotice("أدخل معرّف اللاعب");
-return;
+/* ==================================================
+   إنشاء طلب تجريبي
+================================================== */
+
+async function createDemoOrder(){
+
+  if(!currentUser){
+
+    closeModal("orderModal");
+
+    openAuth();
+
+    return;
+
+  }
+
+
+  /*
+    هذه الخطوة مؤقتة.
+
+    عندما ننشئ جدول orders
+    في Supabase سنستبدلها
+    بالحفظ الحقيقي.
+  */
+
+
+  closeModal("orderModal");
+
+
+  showNotice(
+    "تم تأكيد الاختيار. سنربط الطلب بقاعدة البيانات في الخطوة التالية."
+  );
+
 }
 
-document.getElementById("checkoutGame").textContent=selectedPackage.game;
-document.getElementById("checkoutPackage").textContent=selectedPackage.name;
-document.getElementById("checkoutPlayer").textContent=player;
-document.getElementById("checkoutPrice").textContent=money(selectedPackage.price);
 
-openModal("paymentModal");
+/* ==================================================
+   تسجيل الدخول
+================================================== */
+
+async function loginUser(){
+
+  const email =
+    document
+      .getElementById("loginEmail")
+      .value
+      .trim();
+
+
+  const password =
+    document
+      .getElementById("loginPassword")
+      .value;
+
+
+  if(!email || !password){
+
+    showNotice(
+      "أدخل البريد وكلمة المرور"
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    const result =
+      await supabaseClient.auth.signInWithPassword({
+
+        email:email,
+
+        password:password
+
+      });
+
+
+    if(result.error){
+
+      throw result.error;
+
+    }
+
+
+    currentUser =
+      result.data.user;
+
+
+    closeModal("authModal");
+
+    updateUI();
+
+    showNotice(
+      "تم تسجيل الدخول بنجاح ✅"
+    );
+
+
+  }catch(error){
+
+    console.error(error);
+
+    showNotice(
+      error.message ||
+      "حدث خطأ أثناء تسجيل الدخول"
+    );
+
+  }
+
 }
 
-function submitOrder(){
 
-if(!selectedPackage){
-showNotice("اختر الباقة أولًا");
-return;
+/* ==================================================
+   إنشاء حساب
+================================================== */
+
+async function registerUser(){
+
+  const email =
+    document
+      .getElementById("registerEmail")
+      .value
+      .trim();
+
+
+  const password =
+    document
+      .getElementById("registerPassword")
+      .value;
+
+
+  if(!email || !password){
+
+    showNotice(
+      "أدخل البريد وكلمة المرور"
+    );
+
+    return;
+
+  }
+
+
+  if(password.length < 6){
+
+    showNotice(
+      "كلمة المرور يجب أن تكون 6 أحرف على الأقل"
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    const result =
+      await supabaseClient.auth.signUp({
+
+        email:email,
+
+        password:password
+
+      });
+
+
+    if(result.error){
+
+      throw result.error;
+
+    }
+
+
+    showNotice(
+      "تم إنشاء الحساب. تحقق من بريدك إذا طلب Supabase ذلك."
+    );
+
+
+    showLoginForm();
+
+
+  }catch(error){
+
+    console.error(error);
+
+    showNotice(
+      error.message ||
+      "تعذر إنشاء الحساب"
+    );
+
+  }
+
 }
 
-const reference=document.getElementById("paymentReference").value.trim();
-const phone=document.getElementById("senderPhone").value.trim();
-const player=document.getElementById("playerId").value.trim();
-const note=document.getElementById("orderNote").value.trim();
 
-if(!reference){
-showNotice("أدخل رقم العملية");
-return;
+/* ==================================================
+   تسجيل الخروج
+================================================== */
+
+async function logout(){
+
+  try{
+
+    await supabaseClient.auth.signOut();
+
+  }catch(error){
+
+    console.error(error);
+
+  }
+
+
+  currentUser = null;
+
+  updateUI();
+
+  showScreen("homeScreen");
+
+  showNotice(
+    "تم تسجيل الخروج"
+  );
+
 }
 
-if(!phone){
-showNotice("أدخل رقم الهاتف المحوّل منه");
-return;
+
+/* ==================================================
+   حالة المستخدم
+================================================== */
+
+async function checkSession(){
+
+  try{
+
+    const result =
+      await supabaseClient.auth.getSession();
+
+
+    currentUser =
+      result.data.session
+        ? result.data.session.user
+        : null;
+
+
+    updateUI();
+
+
+  }catch(error){
+
+    console.error(error);
+
+  }
+
 }
 
-const order={
-id:"TOP1-"+Date.now(),
-game:selectedPackage.game,
-package:selectedPackage.name,
-playerId:player,
-price:selectedPackage.price,
-reference:reference,
-senderPhone:phone,
-note:note,
-status:"بانتظار مراجعة الدفع",
-date:new Date().toLocaleString("ar-EG")
-};
 
-orders.unshift(order);
-saveData();
+/* ==================================================
+   مراقبة تسجيل الدخول والخروج
+================================================== */
 
-document.getElementById("paymentReference").value="";
-document.getElementById("senderPhone").value="";
-document.getElementById("playerId").value="";
-document.getElementById("orderNote").value="";
+supabaseClient.auth.onAuthStateChange(
+  function(event,session){
 
-selectedPackage=null;
+    currentUser =
+      session
+        ? session.user
+        : null;
 
-closeModal("paymentModal");
-showScreen("orders");
+    updateUI();
 
-showNotice("تم إرسال الطلب بنجاح");
+  }
+);
+
+
+/* ==================================================
+   تحديث الواجهة
+================================================== */
+
+function updateUI(){
+
+  const loginButton =
+    document.getElementById(
+      "headerLoginButton"
+    );
+
+
+  const logoutButton =
+    document.getElementById(
+      "headerLogoutButton"
+    );
+
+
+  if(currentUser){
+
+    loginButton.style.display =
+      "none";
+
+    logoutButton.style.display =
+      "block";
+
+
+  }else{
+
+    loginButton.style.display =
+      "block";
+
+    logoutButton.style.display =
+      "none";
+
+  }
+
+
+  updateProtectedScreens();
+
 }
 
-function renderOrders(){
 
-const list=document.getElementById("ordersList");
-const empty=document.getElementById("emptyOrders");
+/* ==================================================
+   حماية الصفحات
+================================================== */
 
-if(!orders.length){
-list.innerHTML="";
-empty.style.display="block";
-return;
+function updateProtectedScreens(){
+
+  const storeLoginMessage =
+    document.getElementById(
+      "storeLoginMessage"
+    );
+
+
+  const storeContent =
+    document.getElementById(
+      "storeContent"
+    );
+
+
+  const ordersLoginMessage =
+    document.getElementById(
+      "ordersLoginMessage"
+    );
+
+
+  const ordersContent =
+    document.getElementById(
+      "ordersContent"
+    );
+
+
+  const accountLoginMessage =
+    document.getElementById(
+      "accountLoginMessage"
+    );
+
+
+  const accountContent =
+    document.getElementById(
+      "accountContent"
+    );
+
+
+  if(currentUser){
+
+    storeLoginMessage.style.display =
+      "none";
+
+    storeContent.style.display =
+      "block";
+
+
+    ordersLoginMessage.style.display =
+      "none";
+
+    ordersContent.style.display =
+      "block";
+
+
+    accountLoginMessage.style.display =
+      "none";
+
+    accountContent.style.display =
+      "block";
+
+
+    document
+      .getElementById("accountEmail")
+      .textContent =
+        currentUser.email || "-";
+
+
+  }else{
+
+    storeLoginMessage.style.display =
+      "block";
+
+    storeContent.style.display =
+      "none";
+
+
+    ordersLoginMessage.style.display =
+      "block";
+
+    ordersContent.style.display =
+      "none";
+
+
+    accountLoginMessage.style.display =
+      "block";
+
+    accountContent.style.display =
+      "none";
+
+  }
+
 }
 
-empty.style.display="none";
-list.innerHTML="";
 
-orders.forEach(order=>{
+/* ==================================================
+   واجهة تسجيل الدخول
+================================================== */
 
-const card=document.createElement("div");
-card.className="card ticket";
+function openAuth(){
 
-card.innerHTML=`
-<div class="row">
-<div>
-<b>${escapeHTML(order.game)}</b>
-<div class="small">${escapeHTML(order.package)}</div>
-</div>
-<span class="badge">${escapeHTML(order.status)}</span>
-</div>
+  showLoginForm();
 
-<div class="notice">
-<div>رقم الطلب: <b>${escapeHTML(order.id)}</b></div>
-<div>ID اللاعب: <b>${escapeHTML(order.playerId)}</b></div>
-<div>السعر: <b>${money(order.price)}</b></div>
-<div>التاريخ: ${escapeHTML(order.date)}</div>
-</div>`;
+  openModal("authModal");
 
-list.appendChild(card);
-});
 }
 
-function renderAdmin(){
 
-const pending=orders.filter(x=>x.status==="بانتظار مراجعة الدفع").length;
+function showLoginForm(){
 
-const sales=orders
-.filter(x=>x.status==="تم التنفيذ")
-.reduce((sum,x)=>sum+Number(x.price||0),0);
+  document
+    .getElementById("loginForm")
+    .style.display =
+      "block";
 
-document.getElementById("adminOrders").textContent=orders.length;
-document.getElementById("adminPending").textContent=pending;
-document.getElementById("adminSales").textContent=money(sales);
-document.getElementById("adminTickets").textContent=tickets.length;
 
-const list=document.getElementById("adminOrdersList");
+  document
+    .getElementById("registerForm")
+    .style.display =
+      "none";
 
-if(!orders.length){
-list.innerHTML='<div class="card muted">لا توجد طلبات.</div>';
-return;
+
+  document
+    .getElementById("authTitle")
+    .textContent =
+      "تسجيل الدخول";
+
 }
 
-list.innerHTML="";
 
-orders.forEach(order=>{
+function showRegisterForm(){
 
-const card=document.createElement("div");
-card.className="card";
+  document
+    .getElementById("loginForm")
+    .style.display =
+      "none";
 
-card.innerHTML=`
-<div class="row">
-<div>
-<b>${escapeHTML(order.game)}</b>
-<div class="small">${escapeHTML(order.package)}</div>
-</div>
-<span class="badge">${escapeHTML(order.status)}</span>
-</div>
 
-<div class="notice">
-رقم الطلب: <b>${escapeHTML(order.id)}</b><br>
-ID اللاعب: <b>${escapeHTML(order.playerId)}</b><br>
-المبلغ: <b>${money(order.price)}</b><br>
-مرجع الدفع: <b>${escapeHTML(order.reference)}</b><br>
-الهاتف: <b>${escapeHTML(order.senderPhone)}</b>
-</div>
+  document
+    .getElementById("registerForm")
+    .style.display =
+      "block";
 
-<div class="review-actions">
 
-<button class="btn" onclick="changeOrderStatus('${order.id}','تم التنفيذ')">
-تم التنفيذ
-</button>
+  document
+    .getElementById("authTitle")
+    .textContent =
+      "إنشاء حساب";
 
-<button class="btn btn-red" onclick="changeOrderStatus('${order.id}','مرفوض')">
-رفض
-</button>
-
-</div>`;
-
-list.appendChild(card);
-});
 }
 
-function changeOrderStatus(id,status){
 
-const order=orders.find(x=>x.id===id);
+/* ==================================================
+   الطلبات
+================================================== */
 
-if(!order)return;
+async function loadOrders(){
 
-order.status=status;
+  if(!currentUser){
 
-saveData();
-renderAdmin();
-renderOrders();
+    return;
 
-showNotice("تم تحديث حالة الطلب");
+  }
+
+
+  const list =
+    document.getElementById(
+      "ordersList"
+    );
+
+
+  list.innerHTML = `
+
+    <div class="card">
+
+      <div class="muted">
+        📦 لا توجد طلبات بعد.
+      </div>
+
+    </div>
+
+  `;
+
+
+  /*
+    لاحقًا سنجلب هنا:
+
+    orders
+
+    بواسطة:
+
+    user_id = currentUser.id
+
+  */
+
 }
 
-function updateBalance(){
-document.getElementById("balance").textContent=Number(balance).toLocaleString("ar-EG");
-}
 
-function openModal(id){
-document.getElementById(id).classList.add("show");
-}
-
-function closeModal(id){
-document.getElementById(id).classList.remove("show");
-}
-
-function openProfile(){
-
-document.getElementById("profileName").value=profile.name||"";
-document.getElementById("profilePhone").value=profile.phone||"";
-
-openModal("profileModal");
-}
-
-function saveProfile(){
-
-profile.name=document.getElementById("profileName").value.trim();
-profile.phone=document.getElementById("profilePhone").value.trim();
-
-saveData();
-closeModal("profileModal");
-
-showNotice("تم حفظ البيانات");
-}
-
-function openTopup(){
-openModal("topupModal");
-}
-
-function submitTopup(){
-
-const amount=Number(document.getElementById("topupAmount").value);
-const reference=document.getElementById("topupReference").value.trim();
-
-if(!amount||amount<=0){
-showNotice("أدخل مبلغًا صحيحًا");
-return;
-}
-
-if(!reference){
-showNotice("أدخل رقم العملية");
-return;
-}
-
-topups.unshift({
-id:"TOPUP-"+Date.now(),
-amount:amount,
-reference:reference,
-status:"بانتظار المراجعة",
-date:new Date().toLocaleString("ar-EG")
-});
-
-saveData();
-
-document.getElementById("topupAmount").value="";
-document.getElementById("topupReference").value="";
-
-closeModal("topupModal");
-
-showNotice("تم إرسال طلب إضافة الرصيد");
-}
+/* ==================================================
+   الدعم
+================================================== */
 
 function openSupport(){
-openModal("supportModal");
+
+  if(!currentUser){
+
+    openAuth();
+
+    showNotice(
+      "سجل الدخول أولًا"
+    );
+
+    return;
+
+  }
+
+
+  openModal(
+    "supportModal"
+  );
+
 }
 
-function submitSupport(){
 
-const type=document.getElementById("supportType").value;
-const message=document.getElementById("supportMessage").value.trim();
+async function submitSupport(){
 
-if(!message){
-showNotice("اكتب تفاصيل المشكلة");
-return;
+  const message =
+    document
+      .getElementById("supportMessage")
+      .value
+      .trim();
+
+
+  if(!message){
+
+    showNotice(
+      "اكتب المشكلة أولًا"
+    );
+
+    return;
+
+  }
+
+
+  /*
+    سيتم ربط التذاكر بـ Supabase
+    بعد إنشاء جدول الدعم.
+  */
+
+
+  document
+    .getElementById("supportMessage")
+    .value = "";
+
+
+  closeModal(
+    "supportModal"
+  );
+
+
+  showNotice(
+    "تم استلام طلب الدعم"
+  );
+
 }
 
-tickets.unshift({
-id:"TICKET-"+Date.now(),
-type:type,
-message:message,
-status:"مفتوحة",
-date:new Date().toLocaleString("ar-EG")
-});
 
-saveData();
+/* ==================================================
+   إغلاق النوافذ عند الضغط خارجها
+================================================== */
 
-document.getElementById("supportMessage").value="";
+document
+  .querySelectorAll(".modal")
+  .forEach(function(modal){
 
-closeModal("supportModal");
+    modal.addEventListener(
+      "click",
+      function(event){
 
-showNotice("تم إرسال تذكرة الدعم");
-}
+        if(event.target === modal){
 
-function openRecovery(){
-openModal("recoveryModal");
-}
+          modal.classList.remove(
+            "show"
+          );
 
-function submitRecovery(){
+        }
 
-const phone=document.getElementById("recoveryPhone").value.trim();
-const reason=document.getElementById("recoveryReason").value.trim();
+      }
+    );
 
-if(!phone){
-showNotice("أدخل رقم الهاتف");
-return;
-}
+  });
 
-if(!reason){
-showNotice("اكتب سبب الاستعادة");
-return;
-}
 
-tickets.unshift({
-id:"REC-"+Date.now(),
-type:"استعادة الحساب",
-message:reason,
-phone:phone,
-status:"قيد المراجعة",
-date:new Date().toLocaleString("ar-EG")
-});
+/* ==================================================
+   التشغيل الأول
+================================================== */
 
-saveData();
+document.addEventListener(
+  "DOMContentLoaded",
+  function(){
 
-document.getElementById("recoveryPhone").value="";
-document.getElementById("recoveryReason").value="";
+    loadPackages();
 
-closeModal("recoveryModal");
+    checkSession();
 
-showNotice("تم إرسال طلب الاستعادة");
-}
-
-function saveSetting(id){
-
-const value=document.getElementById(id).value;
-
-localStorage.setItem("top1_"+id,value);
-
-showNotice("تم حفظ الإعداد");
-}
-
-function toggleTheme(){
-
-document.body.classList.toggle("light");
-
-if(document.body.classList.contains("light")){
-document.body.style.background="#eef1f5";
-document.querySelector(".app").style.background="#f5f7fa";
-document.querySelector(".app").style.color="#111";
-showNotice("تم تغيير المظهر");
-}else{
-document.body.style.background="#03060b";
-document.querySelector(".app").style.background="#070b12";
-document.querySelector(".app").style.color="#fff";
-showNotice("تمت إعادة الوضع الليلي");
-}
-}
-
-function toggleLanguage(){
-showNotice("النسخة الحالية باللغة العربية");
-}
-
-document.querySelectorAll(".modal").forEach(modal=>{
-modal.addEventListener("click",function(e){
-if(e.target===modal){
-modal.classList.remove("show");
-}
-});
-});
-
-document.addEventListener("DOMContentLoaded",function(){
-
-loadPackages();
-updateBalance();
-renderOrders();
-
-const savedStore=localStorage.getItem("top1_storeName");
-if(savedStore)document.getElementById("storeName").value=savedStore;
-
-const savedCurrency=localStorage.getItem("top1_currency");
-if(savedCurrency)document.getElementById("currency").value=savedCurrency;
-});
+  }
+);
 
 </script>
 
